@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card p-4">
+        <h2>Editar Producto</h2>
+        <form action="{{ url_for('productos_update') }}" method="post">
+            <input type="hidden" name="id" value="{{ producto['id'] }}">
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ producto['descripcion'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{ producto['cantidad'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" step="0.01" value="{{ producto['precio'] }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="{{ url_for('productos') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+{% endblock %}

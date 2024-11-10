@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card p-4">
+        <h2>Agregar Producto</h2>
+        <form action="{{ url_for('productos_save') }}" method="post">
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" required>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{{ url_for('productos') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+{% endblock %}
